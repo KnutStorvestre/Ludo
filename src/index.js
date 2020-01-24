@@ -44,9 +44,9 @@ class Board extends React.Component {
         let boxes = []
         let num = 0;
 
-        for (let x = 0; x < 3; x++) {
+        for (let x = 0; x < 15; x++) {
             let children = []
-            for (let y = 0; y < 3; y++) {
+            for (let y = 0; y < 15; y++) {
                 children.push(this.renderSquare(num++))
             }
             boxes.push(<div className="board-row">{children}</div>)
@@ -96,6 +96,7 @@ ReactDOM.render(
 );
 
 function calculateWinner(squares) {
+    /*
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -112,6 +113,7 @@ function calculateWinner(squares) {
             return squares[a];
         }
     }
+     */
     return null;
 }
 
