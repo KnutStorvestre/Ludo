@@ -22,5 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#jetbrains Stuff
+
+# ignore .idea folder
 .idea
+
+# ignore node folder
+node_modules
