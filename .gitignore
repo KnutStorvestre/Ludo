@@ -24,3 +24,6 @@ yarn-error.log*
 
 # ignore .idea folder
 .idea
+
+# ignore node folder
+node_modules
