@@ -1,0 +1,20 @@
+/*
+
+function RedSquare(props) {
+    return (
+        //<button className="square" data-pro={props.value} onClick={props.onClick}> gives different colors to X and O
+        <button className="redSquare" onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
+}
+
+function YellowSquare(props) {
+    return (
+        //<button className="square" data-pro={props.value} onClick={props.onClick}> gives different colors to X and O
+        <button className="yellowSquare" onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
+}
+ */

@@ -18,13 +18,15 @@ ol, ul {
     margin-bottom: 10px;
 }
 
-button.square[data-pro="red"] {
+/*
+button.square[data-pro="X"] {
     color: red;
 }
 
 button.square[data-pro="red"] {
     color: green;
 }
+ */
 
 .yellowSquare {
     background: #FFF500;
@@ -57,7 +59,7 @@ button.square[data-pro="red"] {
 }
 
 .square {
-    background: #fff;
+    /*background: #fff;*/
     border: 1px solid #999;
     float: left;
     font-size: 24px;
