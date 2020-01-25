@@ -2,7 +2,17 @@ import React from "react";
 
 function Square(props) {
     return (
-        <button className="square" data-pro={props.value} onClick={props.onClick}>
+        //<button className="square" data-pro={props.value} onClick={props.onClick}> gives different colors to X and O
+        <button className="square" onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
+}
+
+function RedSquare(props) {
+    return (
+        //<button className="square" data-pro={props.value} onClick={props.onClick}> gives different colors to X and O
+        <button className="redSquare" onClick={props.onClick}>
             {props.value}
         </button>
     );
@@ -31,7 +41,7 @@ class Board extends React.Component {
 
     renderSquare(i) {
         return (
-            <Square
+            <RedSquare
                 value={this.state.squares[i]}
                 onClick={() => this.handleClick(i)}
             />
