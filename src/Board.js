@@ -18,7 +18,17 @@ function RedSquare(props) {
     );
 }
 
+function YellowSquare(props) {
+    return (
+        //<button className="square" data-pro={props.value} onClick={props.onClick}> gives different colors to X and O
+        <button className="yellowSquare" onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
+}
+
 class Board extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -41,6 +51,15 @@ class Board extends React.Component {
 
     renderSquare(i) {
         return (
+            <Square
+                value={this.state.squares[i]}
+                onClick={() => this.handleClick(i)}
+            />
+        );
+    }
+
+    renderRedSquare(i) {
+        return (
             <RedSquare
                 value={this.state.squares[i]}
                 onClick={() => this.handleClick(i)}
@@ -48,14 +67,37 @@ class Board extends React.Component {
         );
     }
 
+    renderYellowSquare(i) {
+        return (
+            <YellowSquare
+                value={this.state.squares[i]}
+                onClick={() => this.handleClick(i)}
+            />
+        );
+    }
+
+
     createBoxes = () => {
         let boxes = []
         let num = 0;
 
-        for (let x = 0; x < 15; x++) {
+        let startingBoxesX = [1,4,10,13];
+        let startingBoxesY = [1,4,10,13];
+
+        for (let y = 0; y < 15; y++) {
             let children = []
-            for (let y = 0; y < 15; y++) {
-                children.push(this.renderSquare(num++))
+            for (let x = 0; x < 15; x++, num++) {
+                if (startingBoxesX.includes(x) && startingBoxesY.includes(y)) {
+                    children.push(this.renderSquare(num))
+                }
+                else if (x<6 && y<6) {
+                    children.push(this.renderRedSquare(num))
+                }
+                else if (x>8 && y<6){
+                    children.push(this.renderYellowSquare(num))
+                }
+                else
+                    children.push(this.renderSquare(num))
             }
             boxes.push(<div className="board-row">{children}</div>)
         }

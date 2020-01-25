@@ -18,6 +18,33 @@ ol, ul {
     margin-bottom: 10px;
 }
 
+
+/* Creates different collors for X and O.
+
+button.square[data-pro="X"] {
+    color: red;
+}
+
+button.square[data-pro="O"] {
+    color: green;
+}
+*/
+
+.yellowSquare {
+    background: #FFF500;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+
 .redSquare {
     background: #FF3C00;
     border: 1px solid #999;
@@ -60,7 +87,7 @@ ol, ul {
     outline: none;
 }
 
-.kbd-navigation .redSquare:focus {
+.kbd-navigation .redSquare  :focus {
     background: #ddd;
 }
 
