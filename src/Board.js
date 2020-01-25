@@ -2,13 +2,11 @@ import React from "react";
 
 function Square(props) {
     return (
-        <button className="square" onClick={props.onClick}>
+        <button className="square" data-pro={props.value} onClick={props.onClick}>
             {props.value}
         </button>
     );
 }
-
-//test
 
 class Board extends React.Component {
     constructor(props) {
