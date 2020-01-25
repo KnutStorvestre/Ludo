@@ -18,17 +18,13 @@ ol, ul {
     margin-bottom: 10px;
 }
 
-
-/* Creates different collors for X and O.
-
-button.square[data-pro="X"] {
+button.square[data-pro="red"] {
     color: red;
 }
 
-button.square[data-pro="O"] {
+button.square[data-pro="red"] {
     color: green;
 }
-*/
 
 .yellowSquare {
     background: #FFF500;
