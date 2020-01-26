@@ -3,7 +3,7 @@ import React from "react";
 function Square(props) {
     return (
         /*gives different colors to X and O*/
-        <button className="square" onClick={props.onClick}>
+        <button className="square" style={{background: props.color}}  onClick={props.onClick}>
             {props.value}
         </button>
     );
@@ -31,10 +31,11 @@ class Board extends React.Component {
         });
     }
 
-    renderSquare(i) {
+    renderSquare(i,color) {
         return (
             <Square
                 value={this.state.squares[i]}
+                color={color}
                 onClick={() => this.handleClick(i)}
             />
         );
@@ -44,14 +45,13 @@ class Board extends React.Component {
         let boxes = []
         let num = 0;
 
-        let startingBoxesX = [1,4,10,13];
-        let startingBoxesY = [1,4,10,13];
+        let startingBoxes = [1,4,10,13];
 
         //0=white, 1=red, 2=yellow
         for (let y = 0; y < 15; y++) {
             let children = []
             for (let x = 0; x < 15; x++, num++) {
-                if (startingBoxesX.includes(x) && startingBoxesY.includes(y)) {
+                if (startingBoxes.includes(x) && startingBoxes.includes(y)) {
                     children.push(this.renderSquare(num,"white"))
                 }
                 else if (x<6 && y<6) {
