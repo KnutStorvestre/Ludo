@@ -70,10 +70,9 @@ class Board extends React.Component {
                     children.push(this.renderSquare(num, "blue"))
                 } else if (y == 7 && (0 < x && x < 7)) {
                     children.push(this.renderSquare(num, "green"))
-                }
-                    /*
-                else if (y == 7 && (7 < x && x < 14))
+                } else if (y == 7 && (7 < x && x < 14))
                     children.push(this.renderSquare(num, "blue"))
+                    /*
                 else if (x == 7 && (0 < y && y < 7))
                     children.push(this.renderSquare(num, "yellow"))
                 else if (x == 7 && (7 < y && y < 14))
