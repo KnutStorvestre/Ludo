@@ -2,15 +2,15 @@ import React from "react";
 
 function Square(props) {
     return (
-        <button className="square" onClick={props.onClick}>
+        /*gives different colors to X and O*/
+        <button className="square" style={{background: props.color}}  onClick={props.onClick}>
             {props.value}
         </button>
     );
 }
 
-//test
-
 class Board extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,26 +31,68 @@ class Board extends React.Component {
         });
     }
 
-    renderSquare(i) {
+    renderSquare(i,color) {
         return (
             <Square
                 value={this.state.squares[i]}
+                color={color}
                 onClick={() => this.handleClick(i)}
             />
         );
+    }
+
+    fillArray(value, len) {
+        var arr = [];
+        for (var i = 0; i < len; i++) {
+            arr.push(value);
+        }
+        return arr;
     }
 
     createBoxes = () => {
         let boxes = []
         let num = 0;
 
-        for (let x = 0; x < 15; x++) {
+        let startingBoxes = [1,4,10,13];
+        //0=white, 1=red, 2=yellow
+        for (let y = 0; y < 15; y++) {
             let children = []
-            for (let y = 0; y < 15; y++) {
-                children.push(this.renderSquare(num++))
+            for (let x = 0; x < 15; x++, num++) {
+                if (startingBoxes.includes(x) && startingBoxes.includes(y)) {
+                    children.push(this.renderSquare(num, "white"))
+                } else if (x < 6 && y < 6) {
+                    children.push(this.renderSquare(num, "green"))
+                } else if (x > 8 && y < 6) {
+                    children.push(this.renderSquare(num, "yellow"))
+                } else if (x < 6 && y > 8) {
+                    children.push(this.renderSquare(num, "red"))
+                } else if (x > 8 && y > 8) {
+                    children.push(this.renderSquare(num, "blue"))
+                } else if (y == 7 && (0 < x && x < 7)) {
+                    children.push(this.renderSquare(num, "green"))
+                }
+                    /*
+                else if (y == 7 && (7 < x && x < 14))
+                    children.push(this.renderSquare(num, "blue"))
+                else if (x == 7 && (0 < y && y < 7))
+                    children.push(this.renderSquare(num, "yellow"))
+                else if (x == 7 && (7 < y && y < 14))
+                    children.push(this.renderSquare(num, "red"))
+                     */
+                else
+                    children.push(this.renderSquare(num,"white"))
+                /*
+                if (x!=y && x+y!=14)
+                if (y==7)
+                    children.push(this.renderSquare(num,"green"))
+                else
+                    children.push(this.renderSquare(num,"white"))
+                */
             }
             boxes.push(<div className="board-row">{children}</div>)
         }
+            //document.getElementById(1);
+            //document.getElementById('square').style.color = 'tomato';
         return boxes
     }
 
