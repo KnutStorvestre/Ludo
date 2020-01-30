@@ -41,47 +41,46 @@ class Board extends React.Component {
         );
     }
 
+    fillArray(value, len) {
+        var arr = [];
+        for (var i = 0; i < len; i++) {
+            arr.push(value);
+        }
+        return arr;
+    }
+
     createBoxes = () => {
         let boxes = []
         let num = 0;
 
-        //var fs = require('fs');
-        //var text = fs.readFileSync('Board.txt').toString();
-        //console.log(text)
-
         let startingBoxes = [1,4,10,13];
-
         //0=white, 1=red, 2=yellow
         for (let y = 0; y < 15; y++) {
             let children = []
-            //for (let x = 0; x < 15; x++, num++) {
-
-                /*
+            for (let x = 0; x < 15; x++, num++) {
                 if (startingBoxes.includes(x) && startingBoxes.includes(y)) {
+                    children.push(this.renderSquare(num, "white"))
+                } else if (x < 6 && y < 6) {
+                    children.push(this.renderSquare(num, "green"))
+                } else if (x > 8 && y < 6) {
+                    children.push(this.renderSquare(num, "yellow"))
+                } else if (x < 6 && y > 8) {
+                    children.push(this.renderSquare(num, "red"))
+                } else if (x > 8 && y > 8) {
+                    children.push(this.renderSquare(num, "blue"))
+                } else if (y == 7 && (0 < x && x < 7)) {
+                    children.push(this.renderSquare(num, "green"))
+                }
+                    /*
+                else if (y == 7 && (7 < x && x < 14))
+                    children.push(this.renderSquare(num, "blue"))
+                else if (x == 7 && (0 < y && y < 7))
+                    children.push(this.renderSquare(num, "yellow"))
+                else if (x == 7 && (7 < y && y < 14))
+                    children.push(this.renderSquare(num, "red"))
+                     */
+                else
                     children.push(this.renderSquare(num,"white"))
-                }
-                else if (x<6 && y<6) {
-                    children.push(this.renderSquare(num,"green"))
-                }
-                else if (x>8 && y<6){
-                    children.push(this.renderSquare(num,"yellow"))
-                }
-                else if (x<6 && y>8){
-                    children.push(this.renderSquare(num,"red"))
-                }
-                else if (x>8 && y>8){
-                    children.push(this.renderSquare(num,"blue"))
-                }
-                else if (y==7 && (0<x && x<7))
-                        children.push(this.renderSquare(num,"green"))
-                else if (y==7 && (7<x && x<14))
-                    children.push(this.renderSquare(num,"blue"))
-                else if (x==7 && (0<y && y<7))
-                    children.push(this.renderSquare(num,"yellow"))
-                else if (x==7 && (7<y && y<14))
-                    children.push(this.renderSquare(num,"red"))
-
-                 */
                 /*
                 if (x!=y && x+y!=14)
                 if (y==7)
@@ -90,7 +89,8 @@ class Board extends React.Component {
                     children.push(this.renderSquare(num,"white"))
                 */
             }
-            //boxes.push(<div className="board-row">{children}</div>)
+            boxes.push(<div className="board-row">{children}</div>)
+        }
             //document.getElementById(1);
             //document.getElementById('square').style.color = 'tomato';
         return boxes
